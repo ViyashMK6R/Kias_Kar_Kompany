@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Kias_Kar_Kompany.Models.Owner>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerCellNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerEmailAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerCellNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerEmailAddress)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OwnerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OwnerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OwnerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
